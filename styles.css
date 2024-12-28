@@ -7,11 +7,12 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+/* 網站主要字體 */
+html, body {
   font-family: 'Noto Sans SC', sans-serif;
+  background-color: #1c1c1c; /* 整體背景改為深色 */
+  color: #f5f5f5;
   line-height: 1.6;
-  color: #333;
 }
 
 /* 預設連結樣式 */
@@ -27,41 +28,68 @@ a {
   margin: 0 auto;
 }
 
+/*---------------------------------------------
+  主色調 & 輔助色
+---------------------------------------------*/
+:root {
+  --primary-color: #c99840;   /* 金色 */
+  --secondary-color: #af1b1b; /* 暗紅/酒紅 */
+  --dark-bg: #1c1c1c;         /* 深色背景 */
+  --light-bg: #f5f5f5;        /* 較淺的字體或背景 */
+}
+
 /*---------------------------------------------------
-  導覽列
+  導覽列 Navbar
 ---------------------------------------------------*/
 .site-header {
-  background-color: #ffffff;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #282828; 
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 60px;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .logo {
-  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #af1b1b; /* 可依需求更改 */
+  color: var(--primary-color);
+}
+
+/* 手機漢堡選單按鈕 */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* 隱藏checkbox */
+#menu-toggle {
+  display: none;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  transition: max-height 0.4s ease-out;
 }
 
 .nav-links li a {
   font-weight: 500;
-  color: #333;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: #af1b1b;
+  color: var(--primary-color);
 }
 
 /*---------------------------------------------------
@@ -83,19 +111,22 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(28, 28, 28, 0.6);
 }
 
 .hero-content {
   position: relative;
   text-align: center;
+  max-width: 800px;
   color: #fff;
-  max-width: 700px;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
+  font-family: 'Playfair Display', serif;
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .hero-content p {
@@ -106,7 +137,7 @@ a {
 .btn-primary {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: #af1b1b;
+  background-color: var(--secondary-color);
   color: #fff;
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -122,13 +153,14 @@ a {
 ---------------------------------------------------*/
 .about-section {
   padding: 4rem 0;
-  background-color: #f9f9f9;
+  background-color: #2c2c2c;
 }
 
 .about-content {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  align-items: center;
 }
 
 .about-image {
@@ -146,12 +178,14 @@ a {
 .about-text h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #af1b1b;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
 }
 
 .about-text p {
   margin-bottom: 1.5rem;
   line-height: 1.8;
+  color: #f5f5f5;
 }
 
 .about-text ul {
@@ -168,7 +202,7 @@ a {
   content: "•";
   position: absolute;
   left: 0;
-  color: #af1b1b;
+  color: var(--secondary-color);
 }
 
 /*---------------------------------------------------
@@ -176,19 +210,21 @@ a {
 ---------------------------------------------------*/
 .services-section {
   padding: 4rem 0;
+  background-color: #1c1c1c;
 }
 
 .services-section h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #af1b1b;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
 }
 
 .section-subtitle {
   text-align: center;
   margin-bottom: 2rem;
-  color: #666;
+  color: #ccc;
   font-size: 1rem;
 }
 
@@ -199,9 +235,9 @@ a {
 }
 
 .service-item {
-  background-color: #ffffff;
+  background-color: #2c2c2c;
   border-radius: 10px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
@@ -213,7 +249,7 @@ a {
 
 .service-icon {
   font-size: 2.5rem;
-  color: #af1b1b;
+  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
@@ -227,13 +263,14 @@ a {
 .service-item h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #af1b1b;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
 }
 
 .service-item p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #555;
+  color: #dcdcdc;
 }
 
 /*---------------------------------------------------
@@ -241,14 +278,15 @@ a {
 ---------------------------------------------------*/
 .faq-section {
   padding: 4rem 0;
-  background-color: #f9f9f9;
+  background-color: #2c2c2c;
 }
 
 .faq-section h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #af1b1b;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
 }
 
 .faq-item {
@@ -259,13 +297,13 @@ a {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #f5f5f5;
 }
 
 .faq-answer {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #555;
+  color: #dcdcdc;
   padding-left: 1rem;
 }
 
@@ -274,13 +312,21 @@ a {
 ---------------------------------------------------*/
 .contact-section {
   padding: 4rem 0;
+  background-color: #1c1c1c;
 }
 
 .contact-section h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #af1b1b;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ccc;
 }
 
 .contact-info {
@@ -295,11 +341,12 @@ a {
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: #f5f5f5;
 }
 
 .contact-icon {
   font-size: 1.5rem;
-  color: #af1b1b;
+  color: var(--primary-color);
 }
 
 .contact-details p {
@@ -319,8 +366,15 @@ a {
   width: 100%;
   padding: 0.8rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #666;
   font-size: 1rem;
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #999;
 }
 
 .contact-form button {
@@ -331,15 +385,15 @@ a {
   text-align: center;
   font-size: 0.85rem;
   margin-top: 1rem;
-  color: #777;
+  color: #999;
 }
 
 /*---------------------------------------------------
   頁尾區
 ---------------------------------------------------*/
 .site-footer {
-  background-color: #222;
-  color: #fff;
+  background-color: #282828;
+  color: #f5f5f5;
   padding: 1rem 0;
   text-align: center;
 }
@@ -350,32 +404,49 @@ a {
 
 .site-footer span#year {
   font-weight: 700;
+  color: var(--primary-color);
 }
 
 /*---------------------------------------------------
   響應式設計（Responsive）
 ---------------------------------------------------*/
 /* 手機尺寸優化 */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+  /* 漢堡選單在此時出現 */
+  .menu-icon {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: #282828;
+    text-align: center;
+    padding: 0;
+  }
+  .nav-links li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #444;
+  }
+  /* 當 checkbox 被勾選，展開選單 */
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    max-height: 300px; /* 可根據內容長度調整 */
+  }
+
   .about-content {
     flex-direction: column;
     text-align: center;
   }
-  .about-image,
-  .about-text {
-    flex: none;
-    width: 100%;
-  }
-  .nav-links {
-    display: none; /* 可加上 JS 實現手機版漢堡選單 */
-  }
-  .navbar {
-    justify-content: space-between;
-  }
+
   .contact-info {
     flex-direction: column;
     align-items: center;
   }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
