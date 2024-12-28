@@ -8,12 +8,11 @@
   <!-- 引入外部CSS -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- 引入Google Fonts -->
+  <!-- Google Fonts：中文＋英文字體搭配 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- 這裡使用了中文Noto Sans TC + 一款英文字體做搭配 -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" 
     rel="stylesheet"
   />
 
@@ -26,16 +25,19 @@
 <body>
   <!-- 頂部導覽列 -->
   <header class="site-header">
-    <nav class="navbar">
+    <nav class="navbar container">
       <div class="logo">XX佛教骨灰殿</div>
+      <!-- 手機選單切換按鈕 (checkbox + label) -->
       <input type="checkbox" id="menu-toggle" />
       <label for="menu-toggle" class="menu-icon">
         <i class="fa-solid fa-bars"></i>
       </label>
+      <!-- 導覽連結 -->
       <ul class="nav-links">
         <li><a href="#home">首頁</a></li>
         <li><a href="#about">關於我們</a></li>
-        <li><a href="#services">項目優勢</a></li>
+        <li><a href="#why">投資亮點</a></li>
+        <li><a href="#advantages">項目優勢</a></li>
         <li><a href="#faq">常見問題</a></li>
         <li><a href="#contact">聯繫我們</a></li>
       </ul>
@@ -43,86 +45,114 @@
   </header>
 
   <!-- 主要視覺區 Hero Section -->
-  <section class="hero-section" id="home">
-    <div class="hero-overlay"></div>
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>尊重與傳承的投資機會</h1>
+      <h1>莊嚴．慈悲．長遠的投資</h1>
       <p>
-        我們在馬來西亞與印尼擁有寬廣的佛教骨灰殿土地，  
-        提供長遠且具潛力的投資機會。邀請您一起以莊嚴肅穆的方式，  
-        為未來積累福報與財富。
+        在佛教文化的光輝中，  
+        見證永恆與人文的交織。  
+        我們誠邀您加入此骨灰殿投資計畫，  
+        共創福慧與財富的雙重累積。
       </p>
-      <a href="#about" class="btn-primary">了解更多</a>
+      <a href="#contact" class="btn btn-primary">立即諮詢</a>
     </div>
   </section>
 
-  <!-- 關於我們區塊 -->
-  <section class="about-section" id="about">
-    <div class="container">
-      <div class="about-content">
-        <img src="images/about.jpg" alt="about" class="about-image" />
-        <div class="about-text">
-          <h2>關於我們</h2>
-          <p>
-            XX佛教骨灰殿擁有多年土地開發與寺院管理經驗，秉持著「慈悲」「敬天」「愛人」  
-            的佛教精神，致力於為往生者提供莊嚴聖潔的歸宿，為家屬提供心靈寄託，  
-            同時也為投資者帶來穩健與長期的收益。我們在馬來西亞及印尼都擁有合法土地，  
-            現正積極尋找夥伴與投資人，共同打造一個兼具人文、關懷與高格調的佛教紀念園區。
-          </p>
-          <ul>
-            <li>合法土地，開發潛力大</li>
-            <li>與當地佛寺、僧團合作</li>
-            <li>融合現代科技與傳統文化</li>
-          </ul>
+  <!-- 投資亮點 (Why Invest) -->
+  <section class="why-section" id="why">
+    <div class="container why-content">
+      <div class="why-text">
+        <h2>為什麼選擇投資骨灰殿？</h2>
+        <p>
+          骨灰殿屬於剛需產業，不受景氣循環影響；同時具有人文與信仰深度，  
+          在佛教傳統與現代規劃的結合下，具有穩健且可持續的利潤成長空間。  
+          我們掌握合法地契與大面積土地，並與多家寺院、僧團合作，  
+          建立起專業且高信賴度的生態系統，為投資人提供安全且可長期經營的選擇。
+        </p>
+        <div class="why-stats">
+          <div class="stat-item">
+            <h3>10+</h3>
+            <span>年專業經驗</span>
+          </div>
+          <div class="stat-item">
+            <h3>2 國</h3>
+            <span>馬來西亞、印尼土地佈局</span>
+          </div>
+          <div class="stat-item">
+            <h3>800%</h3>
+            <span>骨灰殿需求增長預測 (10 年)</span>
+          </div>
         </div>
+        <a href="#advantages" class="btn btn-outline">瞭解更多優勢</a>
+      </div>
+      <div class="why-image">
+        <img src="images/about.jpg" alt="Why Invest" />
       </div>
     </div>
   </section>
 
-  <!-- 項目優勢 (Services / Features) -->
-  <section class="services-section" id="services">
-    <div class="container">
-      <h2>項目優勢</h2>
+  <!-- 關於我們 (About) -->
+  <section class="about-section" id="about">
+    <div class="container about-content">
+      <div class="about-image">
+        <img src="images/about.jpg" alt="About Us" />
+      </div>
+      <div class="about-text">
+        <h2>關於我們</h2>
+        <p>
+          XX佛教骨灰殿專注於佛教紀念園區與骨灰殿開發管理，結合在地習俗與  
+          佛教文化精髓，致力於為往生者提供莊嚴肅穆的最後歸宿，為家屬留存  
+          永恆且溫暖的記憶。我們深耕馬來西亞與印尼市場，打造兼具尊重、傳承  
+          與投資潛力的骨灰殿專案，立志成為該領域的先驅領導者。
+        </p>
+        <ul>
+          <li>合法土地開發，確保投資穩定安全</li>
+          <li>與當地佛寺、僧團密切合作</li>
+          <li>專業團隊，超過十年經驗</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 項目優勢 (Advantages) -->
+  <section class="advantages-section" id="advantages">
+    <div class="container advantages-content">
+      <h2>核心優勢</h2>
       <p class="section-subtitle">
-        為何此佛教骨灰殿值得投資？五大優勢讓您安心！
+        四大關鍵，成就您的穩健投資
       </p>
-      <div class="services-grid">
-        <div class="service-item">
-          <img src="images/service.jpg" alt="Service" class="service-image" />
-          <h3>土地資源充裕</h3>
+      <div class="advantages-grid">
+        <div class="advantage-item">
+          <img src="images/advantage-1.jpg" alt="Advantage 1" />
+          <h3>優良地段</h3>
           <p>
-            我們在馬來西亞與印尼多處擁有大面積土地，確保骨灰殿能持續擴建與拓展，  
-            創造長期穩定的投資增值空間。
+            我們在馬來西亞與印尼精選的地區皆擁有合法地契，且交通便利、風水佳地，  
+            使骨灰殿擴建與長期營運更具優勢。
           </p>
         </div>
-        <div class="service-item">
-          <i class="fa-solid fa-leaf service-icon"></i>
-          <h3>環境優美，風水絕佳</h3>
+        <div class="advantage-item">
+          <img src="images/advantage-2.jpg" alt="Advantage 2" />
+          <h3>人文關懷</h3>
           <p>
-            精選依山傍水、風水吉地的地點，為往生者和家屬提供祥和寧靜的環境，  
-            同時也帶來更高的市場認同度。
+            全程由專業法師、禮儀團隊負責，並融入在地佛教儀式與文化內涵，  
+            讓追思活動更具意義，也拉升市場認可度。
           </p>
         </div>
-        <div class="service-item">
-          <i class="fa-solid fa-hand-holding-heart service-icon"></i>
-          <h3>文化底蘊深厚</h3>
+        <div class="advantage-item">
+          <img src="images/advantage-3.jpg" alt="Advantage 3" />
+          <h3>品牌推廣</h3>
           <p>
-            融合佛教文化、在地習俗與現代建築美學，讓追思儀式更具莊嚴與人文關懷，  
-            也吸引更多國內外信眾前來。
+            與多家寺院合作強化信仰背書，同時透過線上線下多管道行銷，  
+            快速提升骨灰殿的知名度與使用率。
           </p>
         </div>
-        <div class="service-item">
-          <i class="fa-solid fa-users service-icon"></i>
-          <h3>強力行銷與夥伴合作</h3>
+        <div class="advantage-item">
+          <img src="images/advantage-4.jpg" alt="Advantage 4" />
+          <h3>長期收益</h3>
           <p>
-            與當地佛寺、僧團以及相關團體合作，共同推廣與建立知名度，讓投資更穩健、收益更可觀。
-          </p>
-        </div>
-        <div class="service-item">
-          <i class="fa-solid fa-chart-line service-icon"></i>
-          <h3>長期穩定的投資回報</h3>
-          <p>
-            骨灰殿屬於剛需產業，市場需求持續增長，且營運模式穩定，讓您享有長期且穩定的投資報酬。
+            骨灰殿的剛需市場與龐大族群基數，帶動穩定而長期的收益來源，  
+            同時有利於資產價值的持續上升。
           </p>
         </div>
       </div>
@@ -134,27 +164,27 @@
     <div class="container">
       <h2>常見問題</h2>
       <div class="faq-item">
-        <h3 class="faq-question">Q1：投資形式是什麼？</h3>
+        <h3 class="faq-question">Q1：如何參與投資？</h3>
         <p class="faq-answer">
-          您可透過認購股份或直接投資土地開發等形式參與本項目。詳細投資條款與模式將視您的需求客製化。
+          您可選擇成為合夥投資人、股東或購買骨灰殿的相關認購份額。具體方案可視資金規模與需求靈活搭配。
         </p>
       </div>
       <div class="faq-item">
-        <h3 class="faq-question">Q2：投資風險如何管控？</h3>
+        <h3 class="faq-question">Q2：投資風險與保護機制？</h3>
         <p class="faq-answer">
-          我們擁有專業團隊，並與當地佛寺及法律機構合作，確保開發過程合法合規、資金透明化。
+          我們與當地法規及佛寺深入合作，採取嚴謹的財務與法律控管，並對於土地產權、合約條款進行透明化管理。
         </p>
       </div>
       <div class="faq-item">
-        <h3 class="faq-question">Q3：回報週期大約多久？</h3>
+        <h3 class="faq-question">Q3：項目回報周期？</h3>
         <p class="faq-answer">
-          骨灰殿項目一般在開放後即有穩定收入，約3-5年可見較明顯回報，並有長期收益。
+          初期投入於基礎建設，待骨灰殿正式運營後，通常可在3-5年內逐漸看到盈利增長，並持續帶來長期收益。
         </p>
       </div>
       <div class="faq-item">
-        <h3 class="faq-question">Q4：是否提供實地考察？</h3>
+        <h3 class="faq-question">Q4：是否能實地參觀？</h3>
         <p class="faq-answer">
-          歡迎投資人親臨實地考察，我們亦可協助安排接待、講解與洽談事宜。
+          歡迎投資人親臨馬來西亞或印尼的實體場地考察，並由專業人員帶領解說與洽談合作細節。
         </p>
       </div>
     </div>
@@ -165,7 +195,7 @@
     <div class="container">
       <h2>聯繫我們</h2>
       <p class="section-subtitle">
-        如有任何疑問或想索取更多資料，歡迎隨時與我們聯繫。
+        有任何疑問，或想進一步了解投資資訊，歡迎洽詢。
       </p>
       <div class="contact-info">
         <div class="contact-item">
@@ -184,7 +214,7 @@
         <div class="contact-item">
           <i class="fa-solid fa-map-marker-alt contact-icon"></i>
           <div class="contact-details">
-            <p>地址：吉隆坡市中心 / 雅加達市中心</p>
+            <p>吉隆坡市中心 / 雅加達市中心</p>
           </div>
         </div>
       </div>
@@ -192,7 +222,7 @@
         <input type="text" placeholder="姓名 (必填)" id="name" required />
         <input type="email" placeholder="Email (必填)" id="email" required />
         <textarea placeholder="留言內容" id="message" rows="4"></textarea>
-        <button type="submit" class="btn-primary">送出</button>
+        <button type="submit" class="btn btn-primary">送出</button>
       </form>
       <p class="disclaimer">
         * 您的個人資訊僅用於回覆需求，不做其他用途。
