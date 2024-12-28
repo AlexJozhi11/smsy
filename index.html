@@ -8,25 +8,30 @@
   <!-- 引入外部CSS -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- 字體 & Icons (可依需求選擇不同字體) -->
+  <!-- 引入Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" 
+  <!-- 這裡使用了中文Noto Sans TC + 一款英文字體做搭配 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet"
   />
 
-  <!-- 常見圖示庫（Font Awesome CDN） -->
-  <script 
-    src="https://kit.fontawesome.com/abcdef1234.js" 
-    crossorigin="anonymous">
-  </script>
+  <!-- Icon套件 (Font Awesome) -->
+  <script
+    src="https://kit.fontawesome.com/abcdef1234.js"
+    crossorigin="anonymous"
+  ></script>
 </head>
 <body>
   <!-- 頂部導覽列 -->
   <header class="site-header">
     <nav class="navbar">
       <div class="logo">XX佛教骨灰殿</div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+      </label>
       <ul class="nav-links">
         <li><a href="#home">首頁</a></li>
         <li><a href="#about">關於我們</a></li>
@@ -83,7 +88,7 @@
       </p>
       <div class="services-grid">
         <div class="service-item">
-          <img src="images/service.jpg" alt="Service" class="service-image"/>
+          <img src="images/service.jpg" alt="Service" class="service-image" />
           <h3>土地資源充裕</h3>
           <p>
             我們在馬來西亞與印尼多處擁有大面積土地，確保骨灰殿能持續擴建與拓展，  
