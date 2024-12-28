@@ -1,5 +1,5 @@
 /*---------------------------------------------------
-  全局設定
+  全局 / Reset
 ---------------------------------------------------*/
 * {
   margin: 0;
@@ -7,15 +7,33 @@
   box-sizing: border-box;
 }
 
-/* 網站主要字體 */
-html, body {
+/* 預設字體、色系變數 */
+:root {
+  --main-bg-color: #fdfdfd;
+  --text-color: #333;
+  --primary-color: #c0a062; /* 金色 */
+  --secondary-color: #555;
+  --accent-color: #8e1515;  /* 可視需要增加的強調色(暗紅) */
+  --header-bg: #ffffff;
+  --footer-bg: #f5f5f5;
+  --container-width: 1200px;
+}
+
+/* 基礎字體設定 */
+html,
+body {
   font-family: 'Noto Sans SC', sans-serif;
-  background-color: #1c1c1c; /* 整體背景改為深色 */
-  color: #f5f5f5;
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
-/* 預設連結樣式 */
+/* 清除列表符號 */
+ul {
+  list-style: none;
+}
+
+/* 連結不帶底線 */
 a {
   text-decoration: none;
   color: inherit;
@@ -24,25 +42,49 @@ a {
 /* 容器寬度控制 */
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
 }
 
-/*---------------------------------------------
-  主色調 & 輔助色
----------------------------------------------*/
-:root {
-  --primary-color: #c99840;   /* 金色 */
-  --secondary-color: #af1b1b; /* 暗紅/酒紅 */
-  --dark-bg: #1c1c1c;         /* 深色背景 */
-  --light-bg: #f5f5f5;        /* 較淺的字體或背景 */
+/*---------------------------------------------------
+  Buttons (通用按鈕)
+---------------------------------------------------*/
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #ab8a4d;
+}
+
+.btn-outline {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
 /*---------------------------------------------------
-  導覽列 Navbar
+  Header / Navbar
 ---------------------------------------------------*/
 .site-header {
-  background-color: #282828; 
+  background-color: var(--header-bg);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -51,24 +93,24 @@ a {
 .navbar {
   display: flex;
   align-items: center;
-  height: 60px;
   justify-content: space-between;
-  padding: 0 1rem;
+  height: 64px;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.4rem;
   color: var(--primary-color);
 }
 
 /* 手機漢堡選單按鈕 */
 .menu-icon {
   display: none;
-  font-size: 1.5rem;
-  color: var(--primary-color);
   cursor: pointer;
+}
+
+.menu-icon i {
+  font-size: 1.5rem;
 }
 
 /* 隱藏checkbox */
@@ -77,7 +119,6 @@ a {
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
   gap: 2rem;
   transition: max-height 0.4s ease-out;
@@ -85,6 +126,7 @@ a {
 
 .nav-links li a {
   font-weight: 500;
+  color: var(--text-color);
   transition: color 0.3s ease;
 }
 
@@ -95,65 +137,117 @@ a {
 /*---------------------------------------------------
   Hero 區塊
 ---------------------------------------------------*/
-.hero-section {
+.hero {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("images/hero-bg.jpg") no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.hero-overlay {
+.hero-bg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(28, 28, 28, 0.6);
+  right: 0;
+  bottom: 0;
+  background: url("images/hero-bg.jpg") no-repeat center center/cover;
+  filter: brightness(70%);
 }
 
 .hero-content {
   position: relative;
   text-align: center;
-  max-width: 800px;
   color: #fff;
+  z-index: 1;
+  max-width: 700px;
   padding: 0 1rem;
 }
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/*---------------------------------------------------
+  Why Section
+---------------------------------------------------*/
+.why-section {
+  background-color: #fff;
+  padding: 4rem 0;
+}
+
+.why-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.why-text {
+  flex: 1 1 450px;
+}
+
+.why-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+.why-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--secondary-color);
 }
 
-.btn-primary {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background-color: var(--secondary-color);
-  color: #fff;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  font-weight: 600;
+.why-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.btn-primary:hover {
-  background-color: #8e1515;
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.stat-item span {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.why-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.why-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 /*---------------------------------------------------
-  About 區塊
+  About Section
 ---------------------------------------------------*/
 .about-section {
   padding: 4rem 0;
-  background-color: #2c2c2c;
+  background-color: #fafafa;
 }
 
 .about-content {
@@ -163,170 +257,167 @@ a {
   align-items: center;
 }
 
-.about-image {
+.about-image,
+.why-image {
   flex: 1 1 400px;
+}
+
+.about-image img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  object-fit: cover;
+  border-radius: 6px;
 }
 
 .about-text {
-  flex: 1 1 400px;
+  flex: 1 1 450px;
 }
 
 .about-text h2 {
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
+  color: var(--primary-color);
   margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.about-text ul {
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.about-text ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.about-text ul li::before {
+  content: "• ";
+  color: var(--primary-color);
+  margin-right: 4px;
+}
+
+/*---------------------------------------------------
+  Advantages Section
+---------------------------------------------------*/
+.advantages-section {
+  padding: 4rem 0;
+}
+
+.advantages-content {
+  text-align: center;
+}
+
+.advantages-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.advantage-item {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.advantage-item:hover {
+  transform: translateY(-3px);
+}
+
+.advantage-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.advantage-item h3 {
+  font-size: 1.2rem;
+  margin: 1rem;
   color: var(--primary-color);
   font-family: 'Playfair Display', serif;
 }
 
-.about-text p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-  color: #f5f5f5;
-}
-
-.about-text ul {
-  list-style: none;
-}
-
-.about-text ul li {
-  position: relative;
-  padding-left: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.about-text ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
+.advantage-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 1rem 1.5rem;
   color: var(--secondary-color);
 }
 
 /*---------------------------------------------------
-  Services 區塊
----------------------------------------------------*/
-.services-section {
-  padding: 4rem 0;
-  background-color: #1c1c1c;
-}
-
-.services-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-  font-family: 'Playfair Display', serif;
-}
-
-.section-subtitle {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #ccc;
-  font-size: 1rem;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.service-item {
-  background-color: #2c2c2c;
-  border-radius: 10px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.service-item:hover {
-  transform: translateY(-5px);
-}
-
-.service-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.service-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.service-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-  font-family: 'Playfair Display', serif;
-}
-
-.service-item p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #dcdcdc;
-}
-
-/*---------------------------------------------------
-  FAQ 區塊
+  FAQ Section
 ---------------------------------------------------*/
 .faq-section {
   padding: 4rem 0;
-  background-color: #2c2c2c;
+  background-color: #fafafa;
 }
 
 .faq-section h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--primary-color);
   font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
 }
 
 .faq-item {
   margin-bottom: 1.5rem;
+  padding: 0 1rem;
 }
 
 .faq-question {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #f5f5f5;
+  color: var(--text-color);
 }
 
 .faq-answer {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #dcdcdc;
+  color: var(--secondary-color);
   padding-left: 1rem;
+  border-left: 2px solid var(--primary-color);
 }
 
 /*---------------------------------------------------
-  聯繫我們 區塊
+  Contact Section
 ---------------------------------------------------*/
 .contact-section {
   padding: 4rem 0;
-  background-color: #1c1c1c;
+  background-color: #fff;
 }
 
 .contact-section h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
   font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .section-subtitle {
   text-align: center;
   margin-bottom: 2rem;
-  color: #ccc;
+  color: var(--secondary-color);
 }
 
 .contact-info {
@@ -334,14 +425,13 @@ a {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  color: #f5f5f5;
+  gap: 0.5rem;
 }
 
 .contact-icon {
@@ -366,15 +456,8 @@ a {
   width: 100%;
   padding: 0.8rem;
   border-radius: 4px;
-  border: 1px solid #666;
+  border: 1px solid #ccc;
   font-size: 1rem;
-  background-color: #2c2c2c;
-  color: #f5f5f5;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #999;
 }
 
 .contact-form button {
@@ -383,26 +466,28 @@ a {
 
 .disclaimer {
   text-align: center;
-  font-size: 0.85rem;
   margin-top: 1rem;
-  color: #999;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
 }
 
 /*---------------------------------------------------
-  頁尾區
+  Footer
 ---------------------------------------------------*/
 .site-footer {
-  background-color: #282828;
-  color: #f5f5f5;
+  background-color: var(--footer-bg);
   padding: 1rem 0;
   text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
 }
 
 .site-footer p {
   margin: 0;
+  color: var(--secondary-color);
 }
 
-.site-footer span#year {
+.site-footer #year {
   font-weight: 700;
   color: var(--primary-color);
 }
@@ -410,44 +495,44 @@ a {
 /*---------------------------------------------------
   響應式設計（Responsive）
 ---------------------------------------------------*/
-/* 手機尺寸優化 */
+/* 手機尺寸：漢堡選單 & 區塊調整 */
 @media (max-width: 960px) {
-  /* 漢堡選單在此時出現 */
   .menu-icon {
     display: block;
   }
   .nav-links {
     position: absolute;
-    top: 60px;
+    top: 64px;
     left: 0;
     right: 0;
     max-height: 0;
     overflow: hidden;
     flex-direction: column;
-    background-color: #282828;
+    background-color: #fff;
     text-align: center;
-    padding: 0;
   }
   .nav-links li {
+    border-bottom: 1px solid #eee;
+  }
+  .nav-links li a {
     padding: 1rem 0;
-    border-bottom: 1px solid #444;
+    display: block;
+    color: var(--text-color);
   }
-  /* 當 checkbox 被勾選，展開選單 */
   #menu-toggle:checked + .menu-icon + .nav-links {
-    max-height: 300px; /* 可根據內容長度調整 */
+    max-height: 300px; /* 調整可視內容高度 */
   }
 
-  .about-content {
+  .why-content, .about-content {
     flex-direction: column;
-    text-align: center;
   }
 
-  .contact-info {
+  .why-stats {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
-  .services-grid {
+  .advantages-grid {
     grid-template-columns: 1fr;
   }
 }
